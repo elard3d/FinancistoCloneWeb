@@ -1,0 +1,49 @@
+﻿<h1>CREAR CUENTA </h1>
+
+<br />
+
+<div class="row">
+
+    <div class="col-16 offset-3">
+
+        <form action="/account/save">
+
+            <div class="form-group">
+
+                <label>Tipo: </label>
+                <select name="Type" class="form-control">
+                    <option value="Efectivo"> Efectivo </option>
+                    <option value="Debito"> Debito </option>
+                    <option value="Credito"> Credito </option>
+                </select>
+
+            </div>
+
+            <div class="form-group">
+                <label>Nombre: </label>
+                <input class="form-control" name="Name" />
+            </div>
+
+            <div class="form-group">
+                <label>Divisa: </label>  
+                <select name="Currency" class="form-control">
+                    <option value="Soles"> Soles </option>
+                </select>
+
+            </div>
+
+            <div class="form-group">
+                <label>Saldo Inicial:</label>
+                
+                    <input name="Amount" class="form-control" />
+                
+            </div>
+
+            <button type="submit" class="btn btn-primary">Guardar</button>
+
+
+        </form>
+
+    </div>
+
+</div>

@@ -1,0 +1,42 @@
+﻿
+<h1>Lista de Cuentas</h1>
+
+<br />
+
+<a href="/account/create"> Crear Cuenta</a>
+
+<br />
+<br />
+
+<table class="table">
+    <thead>
+        <tr style="border-style:solid">
+            <th>Imagen</th>
+            <th>Tipo</th>
+            <th>Nombre</th>
+            <th>Divisa</th>
+            <th>Saldo</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @{ 
+            var accounts = ((List<Account>)ViewBag.Accounts);
+        }
+
+        @for(var i = 0; i <accounts.Count; i++)
+        {
+            var item = accounts[i];
+
+            <tr style="border-style:solid">
+                <td></td>
+                <td>@item.Type</td>
+                <td>@item.Name</td>
+                <td>@item.Currency</td>
+                <td>S/ @item.Ammount</td>
+            </tr>
+
+        }
+    </tbody> 
+    
+</table>
