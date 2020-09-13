@@ -9,38 +9,42 @@ namespace FinancistoCloneWeb.Controllers
 {
     public class AccountController : Controller
     {
-        private FinancistoContext context;
+        private FinancistoContext _context;
 
         public AccountController(FinancistoContext context) {
 
-            this.context = context;
+            this._context = context;
 
         }
+
+        [HttpGet]
 
         public ViewResult Index()
         {
 
-            ViewBag.Accounts = context.Acounts.ToList();
+            ViewBag.Accounts = _context.Acounts.ToList();
             //ViewBag.Accounts = GetDatos();
             return View("Index");
         }
-
-
-        public string Save(string Name, string Type, string Currency, decimal Amount )
-        {
-            var account = new Account { Name = Name, Type = Type, Currency = Currency, Ammount = Amount };
-            context.Acounts.Add(account);
-            context.SaveChanges();
-            return Type + " " + Name + " "+ Currency + " " + Amount ;
-        } 
         
+
+        [HttpGet]
         public ViewResult Create()
         {
             return View("Create");
         }
-        
-   
-        
+
+
+        [HttpPost]
+        public RedirectToActionResult Create(Account account)
+        {               
+            //var account = new Account { Name = Name, Type = Type, Currency = Currency, Ammount = Ammount };
+            _context.Acounts.Add(account);
+             _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
 
     }
 }
