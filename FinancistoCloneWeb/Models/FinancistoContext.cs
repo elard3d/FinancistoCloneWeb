@@ -9,6 +9,7 @@ namespace FinancistoCloneWeb.Models
 {
     public class FinancistoContext: DbContext
     {
+        //Esto se hace por cada Tabla
         public DbSet<Account> Acounts { get; set; }
 
         public FinancistoContext(DbContextOptions<FinancistoContext> options):base(options) { }

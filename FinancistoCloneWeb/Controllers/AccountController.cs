@@ -28,45 +28,19 @@ namespace FinancistoCloneWeb.Controllers
 
         public string Save(string Name, string Type, string Currency, decimal Amount )
         {
+            var account = new Account { Name = Name, Type = Type, Currency = Currency, Ammount = Amount };
+            context.Acounts.Add(account);
+            context.SaveChanges();
             return Type + " " + Name + " "+ Currency + " " + Amount ;
         } 
         
         public ViewResult Create()
         {
-            ViewBag.Accounts = GetDatos();
             return View("Create");
         }
         
    
-        private List<Account> GetDatos() 
-        {
-            var data = new List<Account>();
-            data.Add(new Account { 
-                Type = "Efectivo",
-                Name = "Billetera",
-                Currency = "Soles",
-                Ammount = 0,
-            
-            });
-            
-            data.Add(new Account { 
-                Type = "Debito",
-                Name = "BCP Tarjeta Debito",
-                Currency = "Soles",
-                Ammount = 1000,
-            
-            }); 
-
-            data.Add(new Account { 
-                Type = "Credito",
-                Name = "BCP Tarjeta Credito",
-                Currency = "Soles",
-                Ammount = 1000,
-            
-            });
-
-            return data;
-        }
+        
 
     }
 }

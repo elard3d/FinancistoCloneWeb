@@ -13,6 +13,7 @@ namespace FinancistoCloneWeb.Models.Maps
         {
             builder.ToTable("Account");
             builder.HasKey(o => o.Id);
+
         }
     }
 }
