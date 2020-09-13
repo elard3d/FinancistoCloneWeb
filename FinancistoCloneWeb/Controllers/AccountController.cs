@@ -55,6 +55,13 @@ namespace FinancistoCloneWeb.Controllers
             
         }
 
+        [HttpGet]
+
+        public ActionResult Edit() {
+
+            return View("Edit");
+        }
+        
 
     }
 }
