@@ -23,26 +23,36 @@ namespace FinancistoCloneWeb.Controllers
         {
 
             ViewBag.Accounts = _context.Acounts.ToList();
-            //ViewBag.Accounts = GetDatos();
+            
             return View("Index");
         }
         
 
         [HttpGet]
-        public ViewResult Create()
+        public ViewResult Create()//GET
         {
             return View("Create");
         }
 
 
         [HttpPost]
-        public RedirectToActionResult Create(Account account)
-        {               
-            //var account = new Account { Name = Name, Type = Type, Currency = Currency, Ammount = Ammount };
-            _context.Acounts.Add(account);
-             _context.SaveChanges();
+        public ActionResult Create(Account account)//POST
+        {
+            //if (account.Name == null || account.Name == "") 
 
-            return RedirectToAction("Index");
+            //    ModelState.AddModelError("Name", "El campo Nombre es obligatorio");
+
+                if (ModelState.IsValid) {
+
+                    _context.Acounts.Add(account);
+                    //_context.SaveChanges();
+
+                    return RedirectToAction("Index");
+
+                }
+
+                return View("Create");
+            
         }
 
 
