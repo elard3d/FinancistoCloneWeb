@@ -11,6 +11,7 @@ namespace FinancistoCloneWeb.Models
         public int Id { get; set; }
         
         public string Type { get; set; }
+
         [Required(ErrorMessage ="es Obligatorio")]
         public string Name { get; set; }
        

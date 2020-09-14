@@ -57,11 +57,21 @@ namespace FinancistoCloneWeb.Controllers
 
         [HttpGet]
 
-        public ActionResult Edit() {
+        public ActionResult Edit(int id) {
+
+            ViewBag.Types = new List<string> { "Efectivo", "Debito", "Credito" };
+
+            ViewBag.Account = _context.Acounts.Where(o => o.Id == id).FirstOrDefault();
 
             return View("Edit");
         }
-        
 
+        [HttpPost]
+        public ActionResult Edit(Account account) {
+
+            _context.Acounts.Update(account);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
