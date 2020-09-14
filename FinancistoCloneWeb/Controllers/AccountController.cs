@@ -45,7 +45,7 @@ namespace FinancistoCloneWeb.Controllers
                 if (ModelState.IsValid) {
 
                     _context.Acounts.Add(account);
-                    //_context.SaveChanges();
+                    _context.SaveChanges();
 
                     return RedirectToAction("Index");
 
