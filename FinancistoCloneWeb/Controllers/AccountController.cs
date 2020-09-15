@@ -73,5 +73,17 @@ namespace FinancistoCloneWeb.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public ActionResult Delete(int id) {
+
+            var account = _context.Acounts.Where(o => o.Id == id).FirstOrDefault();
+
+            _context.Acounts.Remove(account);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+
+        }
     }
 }
